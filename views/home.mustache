@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo!</title>
+  </head>
+  <body>
+    <p>TODO!</p>
+    <form class="" action="/addTodo" method="post">
+      <input type="text" name="description" value="" placeholder="Add a todo">
+      <button type="submit">Add todo</button>
+    </form>
+    <ul>
+      {{#todoListForTheBrowser}}
+        <li>
+          <form class="" action="/markComplete" method="post">
+            <button type="submit" name="descriptionOfTheTaskWeAreCompleting" value="{{.}}">Mark Complete</button>
+            {{.}}
+          </form>
+        </li>
+      {{/todoListForTheBrowser}}
+    </ul>
+    <h1>Completed Tasks</h1>
+    <ul>
+      {{#completedListForTheBrowser}}
+        <li>{{.}}</li>
+      {{/completedListForTheBrowser}}
+    </ul>
+  </body>
+</html>
